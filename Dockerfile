@@ -7,10 +7,8 @@ RUN \
 	libcrypto1.0 \
 	libssl1.0 \
 	libusb \
-#	openssl \
 	pcsc-lite \
 	pcsc-lite-libs && \
-#	usbutils && \
 
 # add build time dependencies 
  apk add --no-cache --virtual=build-dependencies \

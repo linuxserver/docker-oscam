@@ -2,7 +2,7 @@ FROM lsiobase/alpine
 MAINTAINER saarg
 
 # add runtime dependencies required for Oscam
-RUN \	
+RUN \
  apk add --no-cache \
 	libcrypto1.0 \
 	libssl1.0 \
@@ -10,7 +10,7 @@ RUN \
 	pcsc-lite \
 	pcsc-lite-libs && \
 
-# add build time dependencies 
+# add build time dependencies
  apk add --no-cache --virtual=build-dependencies \
 	curl \
 	gcc \
@@ -42,22 +42,22 @@ RUN \
 	NO_PLUS_TARGET=1 \
 	CONF_DIR=/config \
 	DEFAULT_PCSC_FLAGS="-I/usr/include/PCSC" \
-	pcsc-libusb && \	
-	
+	pcsc-libusb && \
+
 # fix broken permissions from pcscd install.
  chown root:root \
- 	/usr/sbin/pcscd && \
+	/usr/sbin/pcscd && \
  chmod 755 \
- 	/usr/sbin/pcscd && \
+	/usr/sbin/pcscd && \
 
 # install PCSC drivers for OmniKey devices
  mkdir -p \
  /tmp/omnikey && \
  curl -o \
  /tmp/omnikey.tar.gz -L \
- 	https://www.hidglobal.com/sites/default/files/drivers/ifdokccid_linux_x86_64-v4.2.8.tar.gz && \
+	https://www.hidglobal.com/sites/default/files/drivers/ifdokccid_linux_x86_64-v4.2.8.tar.gz && \
  tar xzf /tmp/omnikey.tar.gz -C \
- 	/tmp/omnikey --strip-components=2 && \
+	/tmp/omnikey --strip-components=2 && \
  cd /tmp/omnikey && \
  ./install && \
 
@@ -69,7 +69,6 @@ RUN \
 # cleanup
  apk del --purge \
 	build-dependencies && \
-	
  rm -rf \
 	/tmp/*
 
@@ -78,3 +77,4 @@ COPY root/ /
 
 # Ports and volumes
 EXPOSE 8888
+VOLUME /config

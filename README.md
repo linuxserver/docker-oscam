@@ -29,7 +29,6 @@ docker create \
   -p 8888:8888 \
   linuxserver/oscam
 ```
-If you pass through a card reader, add the --device=/path/to/cardreader tag.
 
 **Parameters**
 
@@ -37,6 +36,8 @@ If you pass through a card reader, add the --device=/path/to/cardreader tag.
 * `-v /config` - where oscam should store config files and logs
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
+
+`If you pass through a card reader, add the --device=/path/to/cardreader tag.`
 
 It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it oscam /bin/bash`.
 

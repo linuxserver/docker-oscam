@@ -11,7 +11,7 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 * [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 # linuxserver/oscam
-[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/oscam.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/oscam.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-oscam)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-oscam/)
+[![](https://images.microbadger.com/badges/image/linuxserver/oscam.svg)](https://microbadger.com/images/linuxserver/oscam "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/oscam.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/oscam.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-oscam)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-oscam/)
 [hub]: https://hub.docker.com/r/linuxserver/oscam/
 
 [Oscam][oscamurl] is an Open Source Conditional Access Module software used for descrambling DVB transmissions using smart cards. It's both a server and a client.

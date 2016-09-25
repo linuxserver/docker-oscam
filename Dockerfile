@@ -1,7 +1,7 @@
 FROM lsiobase/alpine
 MAINTAINER saarg
 
-# add runtime dependencies required for Oscam
+# install runtime packages
 RUN \
  apk add --no-cache \
 	libcrypto1.0 \
@@ -10,7 +10,7 @@ RUN \
 	pcsc-lite \
 	pcsc-lite-libs && \
 
-# add build time dependencies
+# install build packages
  apk add --no-cache --virtual=build-dependencies \
 	curl \
 	gcc \
@@ -27,7 +27,8 @@ RUN \
  svn checkout http://www.streamboard.tv/svn/oscam/trunk /tmp/oscam-svn && \
  cd /tmp/oscam-svn && \
  ./config.sh \
-	--enable all --disable \
+	--enable all \
+	--disable \
 		CARDREADER_DB2COM \
 		CARDREADER_INTERNAL \
 		CARDREADER_STINGER \
@@ -52,7 +53,7 @@ RUN \
 
 # install PCSC drivers for OmniKey devices
  mkdir -p \
- /tmp/omnikey && \
+	/tmp/omnikey && \
  curl -o \
  /tmp/omnikey.tar.gz -L \
 	https://www.hidglobal.com/sites/default/files/drivers/ifdokccid_linux_x86_64-v4.2.8.tar.gz && \

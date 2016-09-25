@@ -55,7 +55,7 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 ## Setting up the application
 
 To set up oscam there are numerous guides on the internet. There are too many scenarios to make a quick guide.
-The webinterface is at port 8888.
+The web interface is at port 8888.
 
 To pass through a card reader, use the --device=/path/to/cardreader. 
 

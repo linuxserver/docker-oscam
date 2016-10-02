@@ -86,5 +86,5 @@ The web interface is at port 8888.
 
 ## Versions
 
-+ **02.10.2016:** Update README.
++ **02.10.2016:** Add info on passing through devices to README.
 + **25.09.2016:** Initial release.

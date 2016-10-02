@@ -27,6 +27,7 @@ docker create \
   -v <path to data>:/config \
   -e PGID=<gid> -e PUID=<uid>  \
   -p 8888:8888 \
+  --device=/dev/ttyUSB0 \
   linuxserver/oscam
 ```
 
@@ -36,10 +37,30 @@ docker create \
 * `-v /config` - where oscam should store config files and logs
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
-
-`If you pass through a card reader, add the --device=/path/to/cardreader tag.`
+* `--device=/dev/ttyUSB0` - for passing through smart card readers
 
 It is based on alpine linux with s6 overlay, for shell access whilst the container is running do `docker exec -it oscam /bin/bash`.
+
+### Passing through Smart Card Readers
+
+If you want to pass through a smart card reader, you need to specify the reader with the `--device=` tag. The method used depends on how the reader is recognized. 
+The first is /dev/ttyUSBX. To find the correct device, connect the reader and run `dmesg | tail` on the host. In the output you will find /dev/ttyUSBX, where X is the number of the device. If this is the first reader you connect to your host, it will be /dev/ttyUSB0. If you add one more it will be /dev/ttyUSB1.
+
+If there are no /dev/ttyUSBX device in `dmesg | tail`, you have to use the USB bus path. It will look similar to the below.
+ 
+`/dev/bus/usb/001/001`
+
+The important parts are the two numbers in the end. The first one is the Bus number, the second is the Device number. To find the Bus and Device number you have to run `lsusb` on the host, then find your USB device in the list and note the Bus and Device numbers.
+
+Here is an example of how to find the Bus and Device. The output of the lsusb command is below.
+
+`Bus 002 Device 005: ID 076b:6622 OmniKey AG CardMan 6121`
+
+The first number, the Bus, is 002. The second number, the Device, is 005. This will look like below in the `--device=` tag.
+
+`--device=/dev/bus/usb/002/005`
+
+If you have multiple smart card readers, you add one `--device=` tag for each reader.
 
 ### User / Group Identifiers
 
@@ -57,7 +78,6 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 To set up oscam there are numerous guides on the internet. There are too many scenarios to make a quick guide.
 The web interface is at port 8888.
 
-To pass through a card reader, use the --device=/path/to/cardreader. 
 
 ## Info
 
@@ -66,4 +86,5 @@ To pass through a card reader, use the --device=/path/to/cardreader.
 
 ## Versions
 
++ **02.10.2016:** Update README.
 + **25.09.2016:** Initial release.

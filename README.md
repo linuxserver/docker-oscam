@@ -11,7 +11,7 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 * [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 # linuxserver/oscam
-[![](https://images.microbadger.com/badges/image/linuxserver/oscam.svg)](https://microbadger.com/images/linuxserver/oscam "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/oscam.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/oscam.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-oscam)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-oscam/)
+[![](https://images.microbadger.com/badges/version/linuxserver/oscam.svg)](https://microbadger.com/images/linuxserver/oscam "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/oscam.svg)](https://microbadger.com/images/linuxserver/oscam "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/oscam.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/oscam.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-oscam)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-oscam/)
 [hub]: https://hub.docker.com/r/linuxserver/oscam/
 
 [Oscam][oscamurl] is an Open Source Conditional Access Module software used for descrambling DVB transmissions using smart cards. It's both a server and a client.
@@ -84,7 +84,16 @@ The web interface is at port 8888.
 * Shell access whilst the container is running: `docker exec -it oscam /bin/bash`
 * To monitor the logs of the container in realtime: `docker logs -f oscam`
 
+* container version number 
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' oscam`
+
+* image version number
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/oscam`
+
 ## Versions
 
++ **14-10-16:** Add version layer information.
 + **02.10.2016:** Add info on passing through devices to README.
 + **25.09.2016:** Initial release.

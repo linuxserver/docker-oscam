@@ -1,4 +1,4 @@
-FROM lsiobase/alpine:3.5
+FROM lsiobase/alpine:3.6
 MAINTAINER saarg
 
 # set version label
@@ -6,16 +6,8 @@ ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
-# install runtime packages
-RUN \
- apk add --no-cache \
-	libcrypto1.0 \
-	libssl1.0 \
-	libusb \
-	pcsc-lite \
-	pcsc-lite-libs && \
-
 # install build packages
+RUN \
  apk add --no-cache --virtual=build-dependencies \
 	curl \
 	gcc \
@@ -27,6 +19,15 @@ RUN \
 	pcsc-lite-dev \
 	subversion \
 	tar && \
+
+# install runtime packages
+ apk add --no-cache \
+	libcrypto1.0 \
+	libssl1.0 \
+	libusb \
+	pcsc-lite \
+	pcsc-lite-libs && \
+
 
 # compile oscam from source
  svn checkout http://www.streamboard.tv/svn/oscam/trunk /tmp/oscam-svn && \

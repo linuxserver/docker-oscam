@@ -100,6 +100,7 @@ The web interface is at port 8888.
 
 ## Versions
 
++ **17.10.2017:** Switch to using bzr for source code, streamboard awol.
 + **28.05.2017:** Rebase to alpine 3.6.
 + **09.02.2017:** Rebase to alpine 3.5.
 + **14.10.2016:** Add version layer information.

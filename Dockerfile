@@ -9,6 +9,7 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 # install build packages
 RUN \
  apk add --no-cache --virtual=build-dependencies \
+	bzr \
 	curl \
 	gcc \
 	g++ \
@@ -17,7 +18,6 @@ RUN \
 	make \
 	libressl-dev \
 	pcsc-lite-dev \
-	subversion \
 	tar && \
 
 # install runtime packages
@@ -30,7 +30,7 @@ RUN \
 
 
 # compile oscam from source
- svn checkout http://www.streamboard.tv/svn/oscam/trunk /tmp/oscam-svn && \
+ bzr branch lp:oscam /tmp/oscam-svn && \
  cd /tmp/oscam-svn && \
  ./config.sh \
 	--enable all \

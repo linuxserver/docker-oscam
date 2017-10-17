@@ -9,6 +9,7 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 # install build packages
 RUN \
  apk add --no-cache --virtual=build-dependencies \
+	bzr \
 	curl \
 	gcc \
 	g++ \
@@ -17,7 +18,6 @@ RUN \
 	make \
 	libressl-dev \
 	pcsc-lite-dev \
-	subversion \
 	tar && \
 
 # install runtime packages
@@ -28,27 +28,26 @@ RUN \
 	pcsc-lite \
 	pcsc-lite-libs && \
 
-
 # compile oscam from source
- svn checkout http://www.streamboard.tv/svn/oscam/trunk /tmp/oscam-svn && \
+ bzr branch lp:oscam /tmp/oscam-svn && \
  cd /tmp/oscam-svn && \
  ./config.sh \
 	--enable all \
 	--disable \
-		CARDREADER_DB2COM \
-		CARDREADER_INTERNAL \
-		CARDREADER_STINGER \
-		CARDREADER_STAPI \
-		CARDREADER_STAPI5 \
-		IPV6SUPPORT \
-		LCDSUPPORT \
-		LEDSUPPORT \
-		READ_SDT_CHARSETS && \
+	CARDREADER_DB2COM \
+	CARDREADER_INTERNAL \
+	CARDREADER_STINGER \
+	CARDREADER_STAPI \
+	CARDREADER_STAPI5 \
+	IPV6SUPPORT \
+	LCDSUPPORT \
+	LEDSUPPORT \
+	READ_SDT_CHARSETS && \
  make \
-	OSCAM_BIN=/usr/bin/oscam \
-	NO_PLUS_TARGET=1 \
 	CONF_DIR=/config \
 	DEFAULT_PCSC_FLAGS="-I/usr/include/PCSC" \
+	NO_PLUS_TARGET=1 \
+	OSCAM_BIN=/usr/bin/oscam \
 	pcsc-libusb && \
 
 # fix broken permissions from pcscd install.
@@ -63,7 +62,8 @@ RUN \
  curl -o \
  /tmp/omnikey.tar.gz -L \
 	https://www.hidglobal.com/sites/default/files/drivers/ifdokccid_linux_x86_64-v4.2.8.tar.gz && \
- tar xzf /tmp/omnikey.tar.gz -C \
+ tar xzf \
+ /tmp/omnikey.tar.gz -C \
 	/tmp/omnikey --strip-components=2 && \
  cd /tmp/omnikey && \
  ./install && \

@@ -22,10 +22,10 @@ RUN \
 
 # install runtime packages
  apk add --no-cache \
+	ccid \
 	libcrypto1.0 \
 	libssl1.0 \
 	libusb \
-	ccid \
 	pcsc-lite \
 	pcsc-lite-libs && \
 

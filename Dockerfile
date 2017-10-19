@@ -25,6 +25,7 @@ RUN \
 	libcrypto1.0 \
 	libssl1.0 \
 	libusb \
+	ccid \
 	pcsc-lite \
 	pcsc-lite-libs && \
 

@@ -100,6 +100,7 @@ The web interface is at port 8888.
 
 ## Versions
 
++ **03.01.18:** Deprecate cpu_core routine lack of scaling.
 + **13.12.17:** Rebase to alpine 3.7.
 + **19.10.17:** Add ccid package for usb card readers.
 + **17.10.17:** Switch to using bzr for source code, streamboard awol.

@@ -12,7 +12,7 @@ project_blurb_optional_extras_enabled: false
 available_architectures:
   - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
   - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
-  - { arch: "{{ arch_armhf }}", tag: "arm32v6-latest"}
+  - { arch: "{{ arch_armhf }}", tag: "arm32v7-latest"}
 
 # development version
 development_versions: false
@@ -73,6 +73,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
   - { date: "19.02.19:", desc: "Add pipeline logic and multi arch, rebase to Alpine 3.8." }
   - { date: "03.01.18:", desc: "Deprecate cpu_core routine lack of scaling." }
   - { date: "13.12.17:", desc: "Rebase to alpine 3.7." }

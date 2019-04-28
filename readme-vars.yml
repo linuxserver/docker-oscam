@@ -73,6 +73,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "29.04.19:", desc: "Add revision check, so pipeline can build new revisions." }
   - { date: "28.04.19:", desc: "Switch back to streamboard svn to fix version not showing in UI." }
   - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
   - { date: "19.02.19:", desc: "Add pipeline logic and multi arch, rebase to Alpine 3.8." }

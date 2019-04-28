@@ -18,6 +18,7 @@ RUN \
 	make \
 	libressl-dev \
 	pcsc-lite-dev \
+	subversion \
 	tar && \
  echo "**** install runtime packages ****" && \
  apk add --no-cache \
@@ -28,7 +29,7 @@ RUN \
 	pcsc-lite \
 	pcsc-lite-libs && \
  echo "**** compile oscam ****" && \
- bzr branch lp:oscam /tmp/oscam-svn && \
+ svn checkout http://www.streamboard.tv/svn/oscam/trunk /tmp/oscam-svn && \
  cd /tmp/oscam-svn && \
  ./config.sh \
 	--enable all \

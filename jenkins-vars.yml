@@ -2,7 +2,8 @@
 
 # jenkins variables
 project_name: docker-oscam
-external_type: os
+external_type: na
+custom_version_command: "docker run --rm alpine:3.9 sh -c 'apk add subversion > /dev/null 2>&1 && svn info --show-item revision http://www.streamboard.tv/svn/oscam/trunk'"
 release_type: stable
 release_tag: latest
 ls_branch: master

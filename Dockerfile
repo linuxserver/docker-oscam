@@ -2,6 +2,7 @@ FROM lsiobase/alpine:3.8
 
 # set version label
 ARG BUILD_DATE
+ARG VERSION
 ARG OSCAM_VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="saarg"
@@ -32,7 +33,7 @@ RUN \
  if [ -z ${OSCAM_VERSION+x} ]; then \
 	OSCAM_VERSION=$(svn info --show-item revision http://www.streamboard.tv/svn/oscam/trunk ); \
  fi && \
- svn checkout http://www.streamboard.tv/svn/oscam/trunk /tmp/oscam-svn && \
+ svn checkout http://www.streamboard.tv/svn/oscam/trunk@${OSCAM_VERSION} /tmp/oscam-svn && \
  cd /tmp/oscam-svn && \
  ./config.sh \
 	--enable all \

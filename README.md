@@ -182,6 +182,7 @@ Below are the instructions for updating containers:
 
 ## Versions
 
+* **29.04.19:** - Add revision check, so pipeline can build new revisions.
 * **28.04.19:** - Switch back to streamboard svn to fix version not showing in UI.
 * **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.
 * **19.02.19:** - Add pipeline logic and multi arch, rebase to Alpine 3.8.

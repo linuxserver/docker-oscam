@@ -231,6 +231,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **28.06.19:** - Rebasing to alpine 3.10.
 * **29.04.19:** - Add revision check, so pipeline can build new revisions.
 * **28.04.19:** - Switch back to streamboard svn to fix version not showing in UI.
 * **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.

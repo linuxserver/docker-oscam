@@ -1,4 +1,4 @@
-FROM lsiobase/alpine:arm64v8-3.8
+FROM lsiobase/alpine:arm64v8-3.10
 
 # set version label
 ARG BUILD_DATE
@@ -17,15 +17,15 @@ RUN \
 	libusb-dev \
 	linux-headers \
 	make \
-	libressl-dev \
+	openssl-dev \
 	pcsc-lite-dev \
 	subversion \
 	tar && \
  echo "**** install runtime packages ****" && \
  apk add --no-cache \
 	ccid \
-	libcrypto1.0 \
-	libssl1.0 \
+	libcrypto1.1 \
+	libssl1.1 \
 	libusb \
 	pcsc-lite \
 	pcsc-lite-libs && \

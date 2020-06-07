@@ -103,7 +103,7 @@ pipeline {
       steps{
         script{
           env.EXT_RELEASE = sh(
-            script: ''' docker run --rm alpine:3.9 sh -c 'apk add subversion > /dev/null 2>&1 && svn info --show-item revision http://www.streamboard.tv/svn/oscam/trunk' ''',
+            script: ''' docker run --rm alpine:3.9 sh -c 'apk add subversion > /dev/null 2>&1 && svn info --show-item revision https://svn.streamboard.tv/oscam/trunk' ''',
             returnStdout: true).trim()
             env.RELEASE_LINK = 'custom_command'
         }

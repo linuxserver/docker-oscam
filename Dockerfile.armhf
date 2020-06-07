@@ -31,7 +31,7 @@ RUN \
 	pcsc-lite-libs && \
  echo "**** compile oscam ****" && \
  if [ -z ${OSCAM_VERSION+x} ]; then \
-	OSCAM_VERSION=$(svn info --show-item revision http://www.streamboard.tv/svn/oscam/trunk ); \
+	OSCAM_VERSION=$(svn info --show-item revision https://svn.streamboard.tv/oscam/trunk ); \
  fi && \
  svn checkout http://www.streamboard.tv/svn/oscam/trunk@${OSCAM_VERSION} /tmp/oscam-svn && \
  cd /tmp/oscam-svn && \

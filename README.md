@@ -40,7 +40,7 @@ Find us at:
 
 [Oscam](http://www.streamboard.tv/oscam/) is an Open Source Conditional Access Module software used for descrambling DVB transmissions using smart cards. It's both a server and a client.
 
-[![oscam](http://download.oscam.cc/images/Logo.png)](http://www.streamboard.tv/oscam/)
+[![oscam](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/oscam-logo.png)](http://www.streamboard.tv/oscam/)
 
 ## Supported Architectures
 

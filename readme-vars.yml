@@ -3,7 +3,7 @@
 # project information
 project_name: oscam
 project_url: "http://www.streamboard.tv/oscam/"
-project_logo: "http://download.oscam.cc/images/Logo.png"
+project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/oscam-logo.png"
 project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) is an Open Source Conditional Access Module software used for descrambling DVB transmissions using smart cards. It's both a server and a client."
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
 project_blurb_optional_extras_enabled: false

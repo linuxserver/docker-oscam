@@ -18,7 +18,7 @@ jobs:
           fi
           echo "**** External trigger running off of master branch. To disable this trigger, set a Github secret named \"PAUSE_EXTERNAL_TRIGGER_OSCAM_MASTER\". ****"
           echo "**** Retrieving external version ****"
-          EXT_RELEASE=$(docker run --rm alpine:3.9 sh -c 'apk add subversion > /dev/null 2>&1 && svn info --show-item revision https://svn.streamboard.tv/oscam/trunk')
+          EXT_RELEASE=$(docker run --rm alpine:latest sh -c 'apk add -U --update --no-cache subversion > /dev/null 2>&1 && svn info --show-item revision https://svn.streamboard.tv/oscam/trunk')
           if [ -z "${EXT_RELEASE}" ] || [ "${EXT_RELEASE}" == "null" ]; then
             echo "**** Can't retrieve external version, exiting ****"
             FAILURE_REASON="Can't retrieve external version for oscam branch master"

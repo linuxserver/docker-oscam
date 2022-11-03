@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-alpine:3.15
+FROM ghcr.io/linuxserver/baseimage-alpine:3.16
 
 # set version label
 ARG BUILD_DATE
@@ -61,10 +61,10 @@ RUN \
   mkdir -p \
     /tmp/omnikey && \
   curl -o \
-  /tmp/omnikey.tar.gz -L \
-    https://www.hidglobal.com/sites/default/files/drivers/ifdokccid_linux_x86_64-v4.2.8.tar.gz && \
+    /tmp/omnikey.tar.gz -L \
+    "https://www3.hidglobal.com/sites/default/files/drivers/ifdokccid_linux_x86_64-v4.2.8.tar.gz" && \
   tar xzf \
-  /tmp/omnikey.tar.gz -C \
+    /tmp/omnikey.tar.gz -C \
     /tmp/omnikey --strip-components=2 && \
   cd /tmp/omnikey && \
   ./install && \

@@ -73,7 +73,8 @@ app_setup_block: |
 
 # changelog
 changelogs:
-  - { date: "19.12.19:", desc: "Rebasing to alpine 3.15." }
+  - { date: "03.11.22:", desc: "Rebasing to alpine 3.16 and s6v3. Update pcsd driver link." }
+  - { date: "13.02.22:", desc: "Rebasing to alpine 3.15." }
   - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
   - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
   - { date: "29.04.19:", desc: "Add revision check, so pipeline can build new revisions." }

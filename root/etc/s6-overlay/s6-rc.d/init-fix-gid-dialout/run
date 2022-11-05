@@ -1,0 +1,26 @@
+#!/usr/bin/with-contenv bash
+
+FILES=$(find /dev/ttyUSB* -type c -print 2>/dev/null)
+
+for i in $FILES
+do
+	DIALOUT_GID=$(stat -c '%g' "$i")
+	if id -G abc | grep -qw "$DIALOUT_GID"; then
+		touch /groupadd
+	else
+		if [ ! "${DIALOUT_GID}" == '0' ]; then
+			DIALOUT_NAME=$(getent group "${DIALOUT_GID}" | awk -F: '{print $1}')
+			if [ -z "${DIALOUT_NAME}" ]; then
+				DIALOUT_NAME="video$(head /dev/urandom | tr -dc 'a-z0-9' | head -c8)"
+				groupadd "$DIALOUT_NAME"
+				groupmod -g "$DIALOUT_GID" "$DIALOUT_NAME"
+			fi
+			usermod -a -G "$DIALOUT_NAME" abc
+			touch /groupadd
+		fi
+	fi
+done
+
+if [ -n "${FILES}" ] && [ ! -f "/groupadd" ]; then
+	usermod -a -G root abc
+fi

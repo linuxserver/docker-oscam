@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bash
+#!/command/with-contenv bash
 
 FILES=$(find /dev/ttyUSB* -type c -print 2>/dev/null)
 
@@ -11,7 +11,7 @@ do
 		if [ ! "${DIALOUT_GID}" == '0' ]; then
 			DIALOUT_NAME=$(getent group "${DIALOUT_GID}" | awk -F: '{print $1}')
 			if [ -z "${DIALOUT_NAME}" ]; then
-				DIALOUT_NAME="video$(head /dev/urandom | tr -dc 'a-z0-9' | head -c8)"
+				DIALOUT_NAME="dialout$(head /dev/urandom | tr -dc 'a-z0-9' | head -c8)"
 				groupadd "$DIALOUT_NAME"
 				groupmod -g "$DIALOUT_GID" "$DIALOUT_NAME"
 			fi

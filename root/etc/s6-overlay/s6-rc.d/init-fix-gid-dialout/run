@@ -1,6 +1,6 @@
 #!/command/with-contenv bash
 
-FILES=$(find /dev/ttyUSB* -type c -print 2>/dev/null)
+FILES=$(find /dev/ttyUSB* /dev/bus/usb/* -type c -print 2>/dev/null)
 
 for i in $FILES
 do

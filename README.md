@@ -56,7 +56,7 @@ The architectures supported by this image are:
 | :----: | :----: | ---- |
 | x86-64 | ✅ | amd64-\<version tag\> |
 | arm64 | ✅ | arm64v8-\<version tag\> |
-| armhf| ✅ | arm32v7-\<version tag\> |
+| armhf | ✅ | arm32v7-\<version tag\> |
 
 ## Application Setup
 
@@ -79,7 +79,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/London
+      - TZ=Etc/UTC
     volumes:
       - /path/to/data:/config
     ports:
@@ -96,12 +96,13 @@ docker run -d \
   --name=oscam \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Europe/London \
+  -e TZ=Etc/UTC \
   -p 8888:8888 \
   -v /path/to/data:/config \
   --device /dev/ttyUSB0:/dev/ttyUSB0 \
   --restart unless-stopped \
   lscr.io/linuxserver/oscam:latest
+
 ```
 
 ### Passing through Smart Card Readers
@@ -134,7 +135,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-p 8888` | WebUI |
 | `-e PUID=1000` | for UserID - see below for explanation |
 | `-e PGID=1000` | for GroupID - see below for explanation |
-| `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London. |
+| `-e TZ=Etc/UTC` | specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). |
 | `-v /config` | Where oscam should store config files and logs. |
 | `--device /dev/ttyUSB0` | For passing through smart card readers. |
 

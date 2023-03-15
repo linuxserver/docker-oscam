@@ -36,11 +36,6 @@ param_devices:
 cap_add_param: false
 
 # optional container parameters
-opt_param_usage_include_env: false
-opt_param_usage_include_vols: false
-opt_param_usage_include_ports: false
-opt_param_device_map: false
-opt_cap_add_param: false
 optional_block_1: true
 optional_block_1_items:
   - |
@@ -69,10 +64,11 @@ optional_block_1_items:
 app_setup_block_enabled: true
 app_setup_block: |
   To set up oscam there are numerous guides on the internet. There are too many scenarios to make a quick guide.
-  The web interface is at port 8888.
+  The web interface is at port 8888. You can find the project wiki [here](https://trac.streamboard.tv/oscam/).
 
 # changelog
 changelogs:
+  - { date: "13.03.23:", desc: "Rebase to Alpine 3.17." }
   - { date: "03.11.22:", desc: "Rebasing to alpine 3.16 and s6v3. Update pcsd driver link." }
   - { date: "13.02.22:", desc: "Rebasing to alpine 3.15." }
   - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }

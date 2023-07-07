@@ -7,34 +7,29 @@ project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/ma
 project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) is an Open Source Conditional Access Module software used for descrambling DVB transmissions using smart cards. It's both a server and a client."
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
 project_blurb_optional_extras_enabled: false
-
 # supported architectures
 available_architectures:
-  - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
-  - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
-  - { arch: "{{ arch_armhf }}", tag: "arm32v7-latest"}
-
+  - {arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
+  - {arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
 # development version
 development_versions: false
-
 # container parameters
 common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
 param_usage_include_net: false
 param_usage_include_env: true
 param_env_vars:
-  - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
+  - {env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London."}
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "/path/to/data", desc: "Where oscam should store config files and logs." }
+  - {vol_path: "/config", vol_host_path: "/path/to/data", desc: "Where oscam should store config files and logs."}
 param_usage_include_ports: true
 param_ports:
-  - { external_port: "8888", internal_port: "8888", port_desc: "WebUI" }
+  - {external_port: "8888", internal_port: "8888", port_desc: "WebUI"}
 param_device_map: true
 param_devices:
-  - { device_path: "/dev/ttyUSB0", device_host_path: "/dev/ttyUSB0", desc: "For passing through smart card readers." }
+  - {device_path: "/dev/ttyUSB0", device_host_path: "/dev/ttyUSB0", desc: "For passing through smart card readers."}
 cap_add_param: false
-
 # optional container parameters
 optional_block_1: true
 optional_block_1_items:
@@ -59,30 +54,29 @@ optional_block_1_items:
     `--device=/dev/bus/usb/002/005`
 
     If you have multiple smart card readers, you add one `--device=` tag for each reader.
-
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
   To set up oscam there are numerous guides on the internet. There are too many scenarios to make a quick guide.
   The web interface is at port 8888. You can find the project wiki [here](https://trac.streamboard.tv/oscam/).
-
 # changelog
 changelogs:
-  - { date: "13.03.23:", desc: "Rebase to Alpine 3.17." }
-  - { date: "03.11.22:", desc: "Rebasing to alpine 3.16 and s6v3. Update pcsd driver link." }
-  - { date: "13.02.22:", desc: "Rebasing to alpine 3.15." }
-  - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
-  - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
-  - { date: "29.04.19:", desc: "Add revision check, so pipeline can build new revisions." }
-  - { date: "28.04.19:", desc: "Switch back to streamboard svn to fix version not showing in UI." }
-  - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
-  - { date: "19.02.19:", desc: "Add pipeline logic and multi arch, rebase to Alpine 3.8." }
-  - { date: "03.01.18:", desc: "Deprecate cpu_core routine lack of scaling." }
-  - { date: "13.12.17:", desc: "Rebase to alpine 3.7." }
-  - { date: "19.10.17:", desc: "Add ccid package for usb card readers." }
-  - { date: "17.10.17:", desc: "Switch to using bzr for source code, streamboard awol." }
-  - { date: "28.05.17:", desc: "Rebase to alpine 3.6." }
-  - { date: "09.02.17:", desc: "Rebase to alpine 3.5." }
-  - { date: "14.10.16:", desc: "Add version layer information." }
-  - { date: "02.10.16:", desc: "Add info on passing through devices to README." }
-  - { date: "25.09.16:", desc: "Initial release." }
+  - {date: "07.07.23:", desc: "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"}
+  - {date: "13.03.23:", desc: "Rebase to Alpine 3.17."}
+  - {date: "03.11.22:", desc: "Rebasing to alpine 3.16 and s6v3. Update pcsd driver link."}
+  - {date: "13.02.22:", desc: "Rebasing to alpine 3.15."}
+  - {date: "19.12.19:", desc: "Rebasing to alpine 3.11."}
+  - {date: "28.06.19:", desc: "Rebasing to alpine 3.10."}
+  - {date: "29.04.19:", desc: "Add revision check, so pipeline can build new revisions."}
+  - {date: "28.04.19:", desc: "Switch back to streamboard svn to fix version not showing in UI."}
+  - {date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag."}
+  - {date: "19.02.19:", desc: "Add pipeline logic and multi arch, rebase to Alpine 3.8."}
+  - {date: "03.01.18:", desc: "Deprecate cpu_core routine lack of scaling."}
+  - {date: "13.12.17:", desc: "Rebase to alpine 3.7."}
+  - {date: "19.10.17:", desc: "Add ccid package for usb card readers."}
+  - {date: "17.10.17:", desc: "Switch to using bzr for source code, streamboard awol."}
+  - {date: "28.05.17:", desc: "Rebase to alpine 3.6."}
+  - {date: "09.02.17:", desc: "Rebase to alpine 3.5."}
+  - {date: "14.10.16:", desc: "Add version layer information."}
+  - {date: "02.10.16:", desc: "Add info on passing through devices to README."}
+  - {date: "25.09.16:", desc: "Initial release."}

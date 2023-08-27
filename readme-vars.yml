@@ -61,6 +61,7 @@ app_setup_block: |
   The web interface is at port 8888. You can find the project wiki [here](https://trac.streamboard.tv/oscam/).
 # changelog
 changelogs:
+  - {date: "27.08.23:", desc: "Rebase to Alpine 3.18. Pull PCSC driver from Linuxserver S3 due to Cloudflare blocking curl download of original file."}
   - {date: "07.07.23:", desc: "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"}
   - {date: "13.03.23:", desc: "Rebase to Alpine 3.17."}
   - {date: "03.11.22:", desc: "Rebasing to alpine 3.16 and s6v3. Update pcsd driver link."}

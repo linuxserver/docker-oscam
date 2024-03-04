@@ -22,7 +22,7 @@ param_env_vars:
   - {env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London."}
 param_usage_include_vols: true
 param_volumes:
-  - {vol_path: "/config", vol_host_path: "/path/to/data", desc: "Where oscam should store config files and logs."}
+  - {vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/data", desc: "Where oscam should store config files and logs."}
 param_usage_include_ports: true
 param_ports:
   - {external_port: "8888", internal_port: "8888", port_desc: "WebUI"}
@@ -61,6 +61,7 @@ app_setup_block: |
   The web interface is at port 8888. You can find the project wiki [here](https://trac.streamboard.tv/oscam/).
 # changelog
 changelogs:
+  - {date: "04.03.24:", desc: "Rebase to Alpine 3.19. Add libdvbcsa."}
   - {date: "27.08.23:", desc: "Rebase to Alpine 3.18. Pull PCSC driver from Linuxserver S3 due to Cloudflare blocking curl download of original file."}
   - {date: "07.07.23:", desc: "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"}
   - {date: "13.03.23:", desc: "Rebase to Alpine 3.17."}

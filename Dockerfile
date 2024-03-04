@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.18
+FROM ghcr.io/linuxserver/baseimage-alpine:3.19
 
 # set version label
 ARG BUILD_DATE
@@ -13,6 +13,7 @@ RUN \
   echo "**** install build packages ****" && \
   apk add --no-cache --virtual=build-dependencies \
     build-base \
+    libdvbcsa-dev \
     libusb-dev \
     linux-headers \
     openssl-dev \
@@ -21,6 +22,7 @@ RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
     ccid \
+    libdvbcsa \
     libusb \
     pcsc-lite \
     pcsc-lite-libs && \

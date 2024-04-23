@@ -9,6 +9,9 @@ ARG OSCAM_VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="saarg"
 
+ENV \
+  MAKEFLAGS="-j4"
+
 RUN \
   echo "**** install build packages ****" && \
   apk add --no-cache --virtual=build-dependencies \
@@ -17,8 +20,7 @@ RUN \
     libusb-dev \
     linux-headers \
     openssl-dev \
-    pcsc-lite-dev \
-    subversion && \
+    pcsc-lite-dev && \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
     ccid \

@@ -9,6 +9,9 @@ ARG OSCAM_VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="saarg"
 
+ENV \
+  MAKEFLAGS="-j4"
+
 RUN \
   echo "**** install build packages ****" && \
   apk add --no-cache --virtual=build-dependencies \
@@ -17,8 +20,7 @@ RUN \
     libusb-dev \
     linux-headers \
     openssl-dev \
-    pcsc-lite-dev \
-    subversion && \
+    pcsc-lite-dev && \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
     ccid \
@@ -28,10 +30,16 @@ RUN \
     pcsc-lite-libs && \
   echo "**** compile oscam ****" && \
   if [ -z ${OSCAM_VERSION+x} ]; then \
-    OSCAM_VERSION=$(svn info --show-item revision https://svn.streamboard.tv/oscam/trunk ); \
+    OSCAM_VERSION=$(curl -s https://git.streamboard.tv/api/v4/projects/11/repository/tags | jq -r '.[0].name'); \
   fi && \
-  svn checkout https://svn.streamboard.tv/oscam/trunk@${OSCAM_VERSION} /tmp/oscam-svn && \
-  cd /tmp/oscam-svn && \
+  mkdir -p /tmp/oscam && \
+  curl -o \
+    /tmp/oscam.tar.gz -L \
+    "https://git.streamboard.tv/common/oscam/-/archive/${OSCAM_VERSION}/oscam-${OSCAM_VERSION}.tar.gz" && \
+  tar xf \
+    /tmp/oscam.tar.gz -C \
+    /tmp/oscam --strip-components=1 && \
+  cd /tmp/oscam && \
   ./config.sh \
     --enable all \
     --disable \

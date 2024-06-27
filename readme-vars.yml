@@ -6,20 +6,13 @@ project_url: "https://git.streamboard.tv/common/oscam"
 project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/oscam-logo.png"
 project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) is an Open Source Conditional Access Module software used for descrambling DVB transmissions using smart cards. It's both a server and a client."
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
-project_blurb_optional_extras_enabled: false
 # supported architectures
 available_architectures:
   - {arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
   - {arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
-# development version
-development_versions: false
 # container parameters
 common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
-param_usage_include_net: false
-param_usage_include_env: true
-param_env_vars:
-  - {env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London."}
 param_usage_include_vols: true
 param_volumes:
   - {vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/data", desc: "Where oscam should store config files and logs."}
@@ -29,7 +22,6 @@ param_ports:
 param_device_map: true
 param_devices:
   - {device_path: "/dev/ttyUSB0", device_host_path: "/dev/ttyUSB0", desc: "For passing through smart card readers."}
-cap_add_param: false
 # optional container parameters
 optional_block_1: true
 optional_block_1_items:
@@ -61,6 +53,7 @@ app_setup_block: |
   The web interface is at port 8888. You can find the project wiki [here](https://trac.streamboard.tv/oscam/).
 # changelog
 changelogs:
+  - {date: "27.06.24:", desc: "Rebase to Alpine 3.20."}
   - {date: "19.04.24:", desc: "Retrieve Oscam from the new git repo."}
   - {date: "04.03.24:", desc: "Rebase to Alpine 3.19. Add libdvbcsa."}
   - {date: "27.08.23:", desc: "Rebase to Alpine 3.18. Pull PCSC driver from Linuxserver S3 due to Cloudflare blocking curl download of original file."}

@@ -298,6 +298,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **27.06.24:** - Rebase to Alpine 3.20.
 * **19.04.24:** - Retrieve Oscam from the new git repo.
 * **04.03.24:** - Rebase to Alpine 3.19. Add libdvbcsa.
 * **27.08.23:** - Rebase to Alpine 3.18. Pull PCSC driver from Linuxserver S3 due to Cloudflare blocking curl download of original file.

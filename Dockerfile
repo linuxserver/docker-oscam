@@ -26,6 +26,7 @@ RUN \
     ccid \
     libdvbcsa \
     libusb \
+    openssl \
     pcsc-lite \
     pcsc-lite-libs && \
   echo "**** compile oscam ****" && \

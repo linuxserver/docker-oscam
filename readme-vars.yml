@@ -51,6 +51,51 @@ app_setup_block_enabled: true
 app_setup_block: |
   To set up oscam there are numerous guides on the internet. There are too many scenarios to make a quick guide.
   The web interface is at port 8888. You can find the project wiki [here](https://trac.streamboard.tv/oscam/).
+# init diagram
+init_diagram: |
+  "oscam:latest": {
+    docker-mods
+    base {
+      fix-attr +\nlegacy cont-init
+    }
+    docker-mods -> base
+    legacy-services
+    custom services
+    init-services -> legacy-services
+    init-services -> custom services
+    custom services -> legacy-services
+    legacy-services -> ci-service-check
+    init-migrations -> init-adduser
+    init-os-end -> init-config
+    init-config -> init-config-end
+    init-oscam-config -> init-config-end
+    init-os-end -> init-crontab-config
+    init-mods-end -> init-custom-files
+    base -> init-envfile
+    base -> init-migrations
+    base -> init-mods
+    init-config-end -> init-mods
+    init-mods -> init-mods-end
+    init-mods-package-install -> init-mods-end
+    init-mods -> init-mods-package-install
+    base -> init-os-end
+    init-adduser -> init-os-end
+    init-envfile -> init-os-end
+    init-migrations -> init-os-end
+    init-config -> init-oscam-config
+    init-custom-files -> init-services
+    init-mods-end -> init-services
+    init-services -> svc-cron
+    svc-cron -> legacy-services
+    svc-pcsd -> svc-oscam
+    svc-oscam -> legacy-services
+    init-services -> svc-pcsd
+    svc-pcsd -> legacy-services
+  }
+  Base Images: {
+    "baseimage-alpine:3.20"
+  }
+  "oscam:latest" <- Base Images
 # changelog
 changelogs:
   - {date: "27.06.24:", desc: "Rebase to Alpine 3.20."}

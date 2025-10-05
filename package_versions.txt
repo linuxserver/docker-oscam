@@ -9,15 +9,15 @@ brotli-libs             1.1.0-r2          apk
 busybox                 1.36.1-r30        apk     
 busybox-binsh           1.36.1-r30        apk     
 c-ares                  1.33.1-r0         apk     
-ca-certificates         20250619-r0       apk     
-ca-certificates-bundle  20250619-r0       apk     
+ca-certificates         20250911-r0       apk     
+ca-certificates-bundle  20250911-r0       apk     
 catatonit               0.2.0-r0          apk     
 ccid                    1.5.5-r0          apk     
 coreutils               9.5-r2            apk     
 coreutils-env           9.5-r2            apk     
 coreutils-fmt           9.5-r2            apk     
 coreutils-sha512sum     9.5-r2            apk     
-curl                    8.12.1-r0         apk     
+curl                    8.14.1-r2         apk     
 eudev-libs              3.2.14-r2         apk     
 findutils               4.9.0-r5          apk     
 gmp                     6.3.0-r1          apk     
@@ -26,7 +26,7 @@ libacl                  2.3.2-r0          apk
 libattr                 2.5.2-r0          apk     
 libbsd                  0.12.2-r0         apk     
 libcrypto3              3.3.5-r0          apk     
-libcurl                 8.12.1-r0         apk     
+libcurl                 8.14.1-r2         apk     
 libdvbcsa               1.1.0-r1          apk     
 libidn2                 2.3.7-r0          apk     
 libintl                 0.22.5-r0         apk     

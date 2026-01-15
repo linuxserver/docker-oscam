@@ -299,6 +299,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **15.01.26:** - Rebase to Alpine 3.23, add support for wiki submodule.
 * **27.06.24:** - Rebase to Alpine 3.20.
 * **19.04.24:** - Retrieve Oscam from the new git repo.
 * **04.03.24:** - Rebase to Alpine 3.19. Add libdvbcsa.

@@ -101,6 +101,7 @@ init_diagram: |
   "oscam:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "15.01.26:", desc: "Rebase to Alpine 3.23, add support for wiki submodule."}
   - {date: "27.06.24:", desc: "Rebase to Alpine 3.20."}
   - {date: "19.04.24:", desc: "Retrieve Oscam from the new git repo."}
   - {date: "04.03.24:", desc: "Rebase to Alpine 3.19. Add libdvbcsa."}

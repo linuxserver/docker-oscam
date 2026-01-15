@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine:3.20
+FROM ghcr.io/linuxserver/baseimage-alpine:3.23
 
 # set version label
 ARG BUILD_DATE
@@ -16,6 +16,7 @@ RUN \
   echo "**** install build packages ****" && \
   apk add --no-cache --virtual=build-dependencies \
     build-base \
+    git \
     libdvbcsa-dev \
     libusb-dev \
     linux-headers \
@@ -33,13 +34,11 @@ RUN \
   if [ -z ${OSCAM_VERSION+x} ]; then \
     OSCAM_VERSION=$(curl -s https://git.streamboard.tv/api/v4/projects/11/repository/tags | jq -r '.[0].name'); \
   fi && \
-  mkdir -p /tmp/oscam && \
-  curl -o \
-    /tmp/oscam.tar.gz -L \
-    "https://git.streamboard.tv/common/oscam/-/archive/${OSCAM_VERSION}/oscam-${OSCAM_VERSION}.tar.gz" && \
-  tar xf \
-    /tmp/oscam.tar.gz -C \
-    /tmp/oscam --strip-components=1 && \
+  git clone \
+    --branch "${OSCAM_VERSION}" \
+    --depth 1 \
+    https://git.streamboard.tv/common/oscam \
+    /tmp/oscam && \
   cd /tmp/oscam && \
   ./config.sh \
     --enable all \

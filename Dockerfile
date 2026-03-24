@@ -44,6 +44,7 @@ RUN \
   ./config.sh \
     --enable all \
     --disable \
+    WEBIF_WIKI \
     CARDREADER_DB2COM \
     CARDREADER_INTERNAL \
     CARDREADER_STINGER \

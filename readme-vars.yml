@@ -97,6 +97,7 @@ init_diagram: |
   "oscam:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "17.07.26:", desc: "Rebase to Alpine 3.24."}
   - {date: "28.04.26:", desc: "Disable binary signing to prevent compile errors."}
   - {date: "15.01.26:", desc: "Rebase to Alpine 3.23, add support for wiki submodule."}
   - {date: "27.06.24:", desc: "Rebase to Alpine 3.20."}

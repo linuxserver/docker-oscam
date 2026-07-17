@@ -299,6 +299,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **17.07.26:** - Rebase to Alpine 3.24.
 * **28.04.26:** - Disable binary signing to prevent compile errors.
 * **15.01.26:** - Rebase to Alpine 3.23, add support for wiki submodule.
 * **27.06.24:** - Rebase to Alpine 3.20.

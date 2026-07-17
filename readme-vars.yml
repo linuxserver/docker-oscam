@@ -92,7 +92,7 @@ init_diagram: |
     svc-pcsd -> legacy-services
   }
   Base Images: {
-    "baseimage-alpine:3.23"
+    "baseimage-alpine:3.24"
   }
   "oscam:latest" <- Base Images
 # changelog
